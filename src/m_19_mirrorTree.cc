@@ -17,21 +17,24 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    TreeNode* m_19_mirrorTree(TreeNode* root) {
+        if (!root) return nullptr;
+
+        TreeNode* tmp = root->left;
+        root->left = m_19_mirrorTree(root->right);
+        root->right = m_19_mirrorTree(tmp);
+
+        return root;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_19_mirrorTree, m_19_mirrorTree_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
     Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
     int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    auto a = s.m_19_mirrorTree(in1.root);
+    EXPECT_EQ(a->val, ans2);
 
 }
 

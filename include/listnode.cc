@@ -16,6 +16,12 @@
 
 namespace LeetCode
 {
+void print_array(std::vector<int>& array){
+    for (auto& a : array) {
+        std::cout << a << " ";
+    }
+    std::cout << std::endl;
+}
 void print_list(ListNode *head)
 {
     while (head != nullptr)

@@ -17,12 +17,12 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
+    int m_44_lastRemaining(vector<int> &nums) {
         return 1;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_44_lastRemaining, m_44_lastRemaining_1)
 {
     Solution s;
     // Tree in1{1, NULL, 2, 3};
@@ -31,7 +31,7 @@ TEST(isValid, isValid_1)
     vector<int> in2 = {1, 2, 3};
     vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
     int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    EXPECT_EQ(s.m_44_lastRemaining(in2), ans2);
 
 }
 

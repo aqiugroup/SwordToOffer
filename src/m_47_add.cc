@@ -17,21 +17,21 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    int m_47_add(int a, int b) {
+        while(b != 0) { // 当进位为 0 时跳出
+            int c = (unsigned int)(a & b) << 1;  // c = 进位
+            a ^= b; // a = 非进位和
+            b = c; // b = 进位
+        }
+        return a;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_47_add, m_47_add_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    int ans2 = 3;
+    EXPECT_EQ(s.m_47_add(1,2), ans2);
 
 }
 

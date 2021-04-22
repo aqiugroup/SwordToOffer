@@ -17,21 +17,28 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    int m_08_minArray(vector<int> &numbers) {
+        int left = 0, right = (int)numbers.size() - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (numbers[mid] > numbers[right]) left = mid + 1;
+            else if (numbers[mid] < numbers[right]) right = mid;
+            else --right;
+        }
+        return numbers[right];
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_08_minArray, m_08_minArray_1)
 {
     Solution s;
     // Tree in1{1, NULL, 2, 3};
     Tree in1{1, 4, 2, 3};
     vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
+    vector<int> in2 = {4,5,6,1, 2, 3};
     vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
     int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    EXPECT_EQ(s.m_08_minArray(in2), ans2);
 
 }
 

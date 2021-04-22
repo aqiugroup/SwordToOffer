@@ -17,21 +17,23 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    int m_31_maxSubArray(vector<int>& nums) {
+        int res = nums[0];
+        for(int i = 1; i < nums.size(); i++){
+            nums[i] += max(nums[i-1], 0);
+            res = max(res, nums[i]);
+        }
+
+        return res;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_31_maxSubArray, m_31_maxSubArray_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    vector<int> in2 = {1, -2, 3};
+    int ans2 = 3;
+    EXPECT_EQ(s.m_31_maxSubArray(in2), ans2);
 
 }
 

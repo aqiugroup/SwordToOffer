@@ -17,21 +17,23 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
+    int sum = 0;
+    int helper(int n) {
+        sum += n;
+        n && helper(n-1);
         return 1;
+    }
+    int m_46_sumNums(int n) {
+        helper(n);
+        return sum;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_46_sumNums, m_46_sumNums_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    int ans2 = 15;
+    EXPECT_EQ(s.m_46_sumNums(5), ans2);
 
 }
 

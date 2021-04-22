@@ -17,21 +17,22 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    char m_35_firstUniqChar(string s) {
+        unordered_map<char, bool> dic;
+        for(char c : s)
+            dic[c] = dic.find(c) == dic.end();
+        for(char c : s)
+            if(dic[c]) return c;
+        return ' ';
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_35_firstUniqChar, m_35_firstUniqChar_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    string in2="abccda";
+    char ans2 = 'b';
+    EXPECT_EQ(s.m_35_firstUniqChar(in2), ans2);
 
 }
 

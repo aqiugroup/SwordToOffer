@@ -17,21 +17,27 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    string m_04_replace_space(string s) {
+        string ans = "";
+        for(auto c : s) {
+            if (c==' ') ans += "%20";
+            else ans+=c;
+        }
+
+        return ans;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_04_replace_space, m_04_replace_space_1)
 {
     Solution s;
     // Tree in1{1, NULL, 2, 3};
     Tree in1{1, 4, 2, 3};
     vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
+    string in2 = "We are happy.";
     vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    string ans2 = "We%20are%20happy.";
+    EXPECT_EQ(s.m_04_replace_space(in2), ans2);
 
 }
 

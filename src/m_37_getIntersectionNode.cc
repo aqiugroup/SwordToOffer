@@ -17,12 +17,17 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    ListNode * m_37_getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *A = headA, *B = headB;
+        while (A != B) {
+            A = A != nullptr ? A->next : headB;
+            B = B != nullptr ? B->next : headA;
+        }
+        return A;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_37_getIntersectionNode, m_37_getIntersectionNode_1)
 {
     Solution s;
     // Tree in1{1, NULL, 2, 3};
@@ -31,7 +36,7 @@ TEST(isValid, isValid_1)
     vector<int> in2 = {1, 2, 3};
     vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
     int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    // EXPECT_EQ(s.m_37_getIntersectionNode(in2), ans2);
 
 }
 

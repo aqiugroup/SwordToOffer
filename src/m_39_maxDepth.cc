@@ -17,21 +17,26 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    int m_39_maxDepth(TreeNode* root) {
+        return helper(root);
+    }
+
+    int helper(TreeNode* root){
+        if(!root) return 0;
+
+        int left = helper(root->left);
+        int right = helper(root->right);
+
+        return max(left, right) + 1;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_39_maxDepth, m_39_maxDepth_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
     Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    int ans2 = 3;
+    EXPECT_EQ(s.m_39_maxDepth(in1.root), ans2);
 
 }
 

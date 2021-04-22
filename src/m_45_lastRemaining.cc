@@ -17,21 +17,20 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    int m_45_lastRemaining(int n, int m) {
+        int pos = 0; // 最终活下来那个人的初始位置
+        for(int i = 2; i <= n; i++){
+            pos = (pos + m) % i;  // 每次循环右移
+        }
+        return pos;
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_45_lastRemaining, m_45_lastRemaining_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
-    vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    int ans2 = 0;
+    EXPECT_EQ(s.m_45_lastRemaining(1,3), ans2);
 
 }
 

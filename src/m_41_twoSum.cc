@@ -17,21 +17,24 @@
 class Solution
 {
 public:
-    int isValid(vector<int> &nums) {
-        return 1;
+    vector<int> m_41_twoSum(vector<int>& nums, int target) {
+        int l = 0, r = nums.size()-1;
+        while(l<r) {
+            if(nums[l]+nums[r] == target) return vector<int>{nums[l], nums[r]};
+            else if(nums[l]+nums[r] > target) r--;
+            else l++;
+        }
+
+        return vector<int>{};
     }
 };
 
-TEST(isValid, isValid_1)
+TEST(m_41_twoSum, m_41_twoSum_1)
 {
     Solution s;
-    // Tree in1{1, NULL, 2, 3};
-    Tree in1{1, 4, 2, 3};
-    vector<int> ans1 = {1, 3, 2};
     vector<int> in2 = {1, 2, 3};
-    vector<vector<int>> in3 = {{1,2,3},{2,3,4}};
-    int ans2 = 1;
-    EXPECT_EQ(s.isValid(in2), ans2);
+    vector<int> ans2 = {1,2};
+    EXPECT_EQ(s.m_41_twoSum(in2,3), ans2);
 
 }
 

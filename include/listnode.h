@@ -29,6 +29,7 @@ struct ListNode
     ListNode(int x = 0, ListNode *p = nullptr) : val(x), next(nullptr){};
 };
 
+void print_array(std::vector<int>& array);
 void print_list(ListNode *head);
 bool is_same_list(ListNode *l1, ListNode *l2);
 void freeMem(ListNode *head);
